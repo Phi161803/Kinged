@@ -10,6 +10,11 @@ namespace KoT
     {
         static void Main(string[] args)
         {
+            Game Gameplay = new Game(6);
+            while (!Gameplay.Round()) ;
+
         }
+
+        static Random r = new Random();
     }
 }

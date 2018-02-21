@@ -8,34 +8,49 @@ namespace KoT
 {
     class Game
     {
-        Game()
+        public Game(int i)
         {
-
+            PlayerCount = i;
+            alive = PlayerCount;
+            Players = new Player[i];
         }
-        bool Round()
+        public bool Round()
         {
+            bool win = false;
             for(int i = 0; i < PlayerCount; i++)
             {
-                unwin = Move(Players[i]);
-                if(PlayerCount - dead == 1)
+                win = Move(Players[i]);
+                else if (alive == 1)
                 {
-                    winner = //the alive one
-                    return false;
-                } else if(Players[i].points >= 20)
+                    for (int j = 0; j < PlayerCount; j++)
+                    {
+                        if (Players[j].health > 0)
+                        {
+                            winner = Players[j]; //the alive one
+                            win = true;
+                            break;
+                        }
+                    }
+                }
+                if (win)
                 {
-                    winner = Players[i];
-                    return false;
+                    break;
                 }
             }
+            return win;
         }
         bool Move(Player P)
         {
-            return true;
+            if(P.points >= 20)
+            {
+                return true;
+            }
+            return false;
         }
 
         Player winner;
         bool unwin;
-        int dead;
+        int alive;
         int PlayerCount;
         Player[] Players;
     }
