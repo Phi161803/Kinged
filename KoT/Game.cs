@@ -19,8 +19,9 @@ namespace KoT
             bool win = false;
             for(int i = 0; i < PlayerCount; i++)
             {
-                win = Move(Players[i]);
-                else if (alive == 1)
+                P = Players[i];
+                win = Move();
+                if (alive == 1)
                 {
                     for (int j = 0; j < PlayerCount; j++)
                     {
@@ -39,15 +40,17 @@ namespace KoT
             }
             return win;
         }
-        bool Move(Player P)
+        bool Move()
         {
             if(P.points >= 20)
             {
+                winner = P;
                 return true;
             }
             return false;
         }
 
+        Player P;
         Player winner;
         bool unwin;
         int alive;

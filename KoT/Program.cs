@@ -12,7 +12,7 @@ namespace KoT
         {
             Game Gameplay = new Game(6);
             while (!Gameplay.Round()) ;
-
+            //announce winner
         }
 
         static Random r = new Random();

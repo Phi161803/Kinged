@@ -12,11 +12,16 @@ namespace KoT
         {
             health = 10;
         }
+        
 
+        public int[] status; //list of all status conditions
+        /*  0 = poison
+            1 = smoke
 
+        */
+        
 
-
-
+        public string name;
         public int health;
         public int points;
     }
